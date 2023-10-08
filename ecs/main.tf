@@ -116,7 +116,7 @@ module "services" {
 locals {
   apps = [
     {
-      name : "frontend",
+      name : "springboot",
       version : "latest",
       port : 80,
       context : "/",
@@ -128,11 +128,11 @@ locals {
       priority : 100
     },
     {
-      name : "document-service",
+      name : "kibana",
       version : "latest",
       port : 80,
-      context : "/document-service/",
-      health : "/document-service/api/actuator/health",
+      context : "/kibana/",
+      health : "/kibana/api/actuator/health",
       deploy : true,
       replica : 1
       cpu : 256,
@@ -140,11 +140,11 @@ locals {
       priority : 90
     },
     {
-      name : "user-service",
+      name : "elastic-search",
       version : "latest",
       port : 80,
-      context : "/user-service/",
-      health : "/user-service/api/actuator/health",
+      context : "/elastic-search/",
+      health : "/elastic-search/api/actuator/health",
       deploy : true,
       replica : 1
       cpu : 256,
